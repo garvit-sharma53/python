@@ -1,0 +1,12 @@
+import math
+
+def compute_gcd_and_length(a, b):
+    gcd = math.gcd(a, b)
+    len_a = len(str(abs(a)))  
+len_b = len(str(abs(b)))  
+    return gcd, len_a, len_b
+
+
+num1, num2 = 48, 180
+gcd_value, len_num1, len_num2 = compute_gcd_and_length(num1, num2)
+print(f"GCD: {gcd_value}, Lengths: {len_num1}, {len_num2}")
