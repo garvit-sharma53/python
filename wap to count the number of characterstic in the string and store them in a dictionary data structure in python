@@ -1,0 +1,14 @@
+def count_character_frequency(text):
+    frequency_dict = {}  
+
+    for char in text:
+        if char in frequency_dict:
+            frequency_dict[char] += 1  
+        else:
+            frequency_dict[char] = 1  
+
+    return frequency_dict
+
+input_string = "Hello, SD card!"
+result = count_character_frequency(input_string)
+print(result)
