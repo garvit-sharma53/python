@@ -1,0 +1,39 @@
+def are_nearly_equal(str1, str2):
+   
+    if str1 == str2:
+        return True
+    
+    len1, len2 = len(str1), len(str2)
+    
+   
+    if abs(len1 - len2) > 1:
+        return False
+    
+    i = j = errors = 0
+    
+    while i < len1 and j < len2:
+        if str1[i] == str2[j]:
+            i += 1
+            j += 1
+        else:
+            errors += 1
+            if errors > 1:
+                return False
+            if len1 > len2:    
+                i += 1
+            elif len2 > len1:  
+                j += 1
+            else:              
+i += 1
+                j += 1
+                
+    return True
+
+# Test cases
+print(are_nearly_equal("hello", "hello"))    
+print(are_nearly_equal("hello", "hello"))
+print(are_nearly_equal("hello", "helloo"))   
+print(are_nearly_equal("hello", "hallo"))    
+print(are_nearly_equal("hello", "hella"))    
+print(are_nearly_equal("hello", "hel"))      
+print(are_nearly_equal("hello", "world"))
