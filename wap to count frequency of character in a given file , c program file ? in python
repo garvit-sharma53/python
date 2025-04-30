@@ -1,0 +1,43 @@
+def count_char_frequency(filename):
+    try:
+        with open(filename, 'r') as file:
+            content = file.read()
+            
+            
+            frequency = {}
+            
+            
+            for char in content:
+                if char in frequency:
+                    frequency[char] += 1
+                else:
+                    frequency[char] = 1
+            
+           
+            sorted_frequency = sorted(frequency.items(), key=lambda x: x[1], reverse=True)
+            
+           
+            print(f"Character frequency in '{filename}':")
+            print("{:<10} {:<10}".format('Character', 'Frequency'))
+            print("-" * 20)
+            for char, count in sorted_frequency:
+               
+                if char == '\n':
+                    display_char = '\\n'
+                elif char == '\t':
+                    display_char = '\\t'
+                elif char == ' ':
+                    display_char = '(space)'
+                else:
+                    display_char = char
+                print("{:<10} {:<10}".format(display_char, count))
+    
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' not found.")
+    except Exception as e:
+        print(f"An error occurred: {e}")
+
+
+if _name_ == "_main_":
+    c_file = input("Enter the path to the C file: ")
+    count_char_frequency(c_file)
